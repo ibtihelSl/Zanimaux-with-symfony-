@@ -1,0 +1,14 @@
+
+{% extends 'PiFrontBundle:Default:Evenements.html.twig' %}
+{% block content7 %}
+    <table>
+
+    {% for participant in participant %}
+
+
+        <tr><td><h3 class="agileits-title two"> Aujourd'hui commance l'evenement {{ participant.titre }} à {{  participant.adresse }}</h3> </td> </tr>
+
+    {% endfor %}
+
+    </table>
+{% endblock %}

@@ -1,0 +1,39 @@
+
+
+{% extends 'PiFrontBundle::Layout.html.twig' %}
+{% block content %}
+    <div class="contact">
+        <div class="container">
+            <h3 class="agileits-title">Contact Us</h3>
+            <div class="contact-agileinfo">
+                <div class="col-md-7 contact-right">
+
+                    <section>
+                        {{form (form)}}
+                    </section>
+
+                </div>
+                <div class="col-md-5 contact-left">
+                    <div class="address">
+                        <h5>Address:</h5>
+                        <p><i class="glyphicon glyphicon-home"></i> Tunis, Tunis </p>
+                    </div>
+                    <div class="address address-mdl">
+                        <h5>Phones:</h5>
+                        <p><i class="glyphicon glyphicon-earphone"></i> +216 72 888 777</p>
+                        <p><i class="glyphicon glyphicon-phone"></i> +216 99 222 333</p>
+                    </div>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+{% endblock %}
+

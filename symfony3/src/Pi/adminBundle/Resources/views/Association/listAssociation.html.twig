@@ -1,0 +1,92 @@
+{% extends "PiAdminBundle:Association:Associationsa.html.twig" %}
+
+{% block container2 %}
+
+    <link href="{{ asset('Back/css/bootstrap.min.css') }}" rel='stylesheet' type='text/css' />
+    <!-- Custom CSS -->
+    <link href="{{ asset('Back/css/style.css') }}" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="{{ asset('Back/css/morris.css') }}" type="text/css"/>
+    <!-- Graph CSS -->
+    <link href="{{ asset('Back/css/font-awesome.css') }}" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="{{ asset('Back/js/jquery-2.1.4.min.js') }}"></script>
+    <!-- //jQuery -->
+    <!-- tables -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('Back/css/table-style.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('Back/css/basictable.css') }}" />
+    <script type="text/javascript" src="{{ asset('Back/js/jquery.basictable.min.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#table').basictable();
+
+            $('#table-breakpoint').basictable({
+                breakpoint: 768
+            });
+
+            $('#table-swap-axis').basictable({
+                swapAxis: true
+            });
+
+            $('#table-force-off').basictable({
+                forceResponsive: false
+            });
+
+            $('#table-no-resize').basictable({
+                noResize: true
+            });
+
+            $('#table-two-axis').basictable();
+
+            $('#table-max-height').basictable({
+                tableWrapper: true
+            });
+        });
+    </script>
+    <!-- //tables -->
+    <link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'/>
+    <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!-- lined-icons -->
+    <link rel="stylesheet" href="{{ asset('Back/css/icon-font.min.css') }}" type='text/css' />
+
+
+
+
+
+
+
+
+    <h3>liste des Associations</h3>
+    <div class="agile-grids">
+        <div class="agile-tables">
+            <div class="w3l-table-info">
+
+                <table border="2">
+
+                    <th>Nom</th>
+                    <th>Adresse</th>
+                    <th>phone</th>
+
+                    <th>Email</th>
+                    <th>Description</th>
+                    <th>Suppression</th>
+                    <th>Mise à jour</th>
+
+                    {%  for Association in Associations %}
+                        <tr>
+                            <td> {{ Association.name }}</td>
+                            <td> {{ Association.adress }}</td>
+                            <td> {{ Association.phone }}</td>
+                            <td> {{ Association.email }}</td>
+                            <td> {{ Association.description }}</td>
+                            <td><a href="{{ path('deleteAssociation',{'id':Association.id}) }}"> supprimer </a></td>
+                            <td><a href="{{ path('updateAssociation',{'id':Association.id}) }}"> mettre à jour </a></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+
+
+        </div>
+
+    </div>
+{% endblock %}

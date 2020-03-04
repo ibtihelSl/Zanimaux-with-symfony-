@@ -1,0 +1,57 @@
+<div id="search">
+    <div class="agile-grids">
+        <div class="agile-tables">
+
+
+
+            <div class="w3l-table-info">
+
+
+                <table border="1">
+                    <tr>
+                        <th>Archive</th>
+                        <th>Titre</th>
+                        <th>Adresse</th>
+                        <th>Date début</th>
+                        <th>Date fin</th>
+                        <th>Type</th>
+                        <th>Nombre de place</th>
+                        <th>Nombre de place reservé</th>
+                        <th>Détails</th>
+                        <th></th>
+
+                    </tr>
+                    {% for Event in all %}
+                    <tr>
+                        <td> {{ Event.archive }}</td>
+                        <td> {{ Event.titre }}</td>
+                        <td> {{ Event.adresse }}</td>
+                        <td> {{ Event.dateDebut|date('Y/m/d') }}</td>
+                        <td> {{ Event.dateFin|date('Y/m/d') }}</td>
+                        <td> {{ Event.type }}</td>
+                        <td> {{ Event.nombrePlace }}</td>
+                        <td> {{ Event.nombreReserve }}</td>
+                        <td> {{ Event.details }}</td>
+                        <td>
+                            <div class="icon-box col-md-3 col-sm-4"><a class="agile-icon"
+                                                                       href="{{ path('updateEvent',{'id':Event.id}) }}"><i
+                                            class="fa fa-pencil-square-o"></i></a></div>
+                            <div class="icon-box col-md-3 col-sm-4"><a class="agile-icon"
+                                                                       href="{{ path('deleteEvent',{'id':Event.id}) }}"><i
+                                            class="fa fa-trash-o"></i></a></div>
+                        </td>
+
+
+                    </tr>
+                    {% endfor %}
+
+
+                </table>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+

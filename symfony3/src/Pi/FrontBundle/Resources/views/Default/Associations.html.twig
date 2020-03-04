@@ -1,0 +1,47 @@
+{% extends 'PiFrontBundle::Layout.html.twig' %}
+{% block content %}
+<div class="services">
+    <div class="container">
+        <h3 class="agileits-title">Associations pour animaux</h3>
+        <div class="top_tabs_agile">
+            <div id="horizontalTab" class="top_tabs_agile">
+
+
+
+    {%  for Association in Associations %}
+
+        <ul class="resp-tabs-list">
+
+            <li>
+                <i class="fa fa-random" aria-hidden="true"></i> {{ Association.name }}
+            </li>
+
+        </ul>
+
+
+                <div class="resp-tabs-container">
+                    <div class="tab1">
+                        <div class="services-right-agileits">
+                            <h4>{{ Association.name }}</h4>
+                            <p class="para-agileits-w3layouts">
+                            <table>
+                            <tr><td>Adresse :</td><td> {{ Association.adress }}</td></tr>
+                            <tr><td>téléphone :</td><td> {{ Association.phone }}</td></tr>
+                            <tr><td>Email :</td><td> {{ Association.email }}</td></tr>
+                            <tr><td>Description :</td> <td> {{ Association.description }}</td></tr>
+                            </table>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+    {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

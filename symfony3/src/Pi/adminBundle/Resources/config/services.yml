@@ -1,0 +1,4 @@
+services:
+#    pi_admin.example:
+#        class: Pi\adminBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

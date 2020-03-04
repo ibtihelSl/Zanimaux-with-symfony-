@@ -1,0 +1,172 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+    <link href="{{ asset('Back/css/bootstrap.min.css') }}" rel='stylesheet' type='text/css' />
+    <link href="{{ asset('Back/css/style.css') }}" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="{{ asset('Back/css/morris.css') }}" type="text/css"/>
+    <!-- Graph CSS -->
+    <link href="{{ asset('Back/css/font-awesome.css') }}" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="{{ asset('Back/js/jquery-2.1.4.min.js') }}"></script>
+    <!-- //jQuery -->
+    <!-- tables -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('Back/css/table-style.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('Back/css/basictable.css') }}" />
+    <script type="text/javascript" src="{{ asset('Back/js/jquery.basictable.min.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#table').basictable();
+
+            $('#table-breakpoint').basictable({
+                breakpoint: 768
+            });
+
+            $('#table-swap-axis').basictable({
+                swapAxis: true
+            });
+
+            $('#table-force-off').basictable({
+                forceResponsive: false
+            });
+
+            $('#table-no-resize').basictable({
+                noResize: true
+            });
+
+            $('#table-two-axis').basictable();
+
+            $('#table-max-height').basictable({
+                tableWrapper: true
+            });
+        });
+    </script>
+    <!-- //tables -->
+    <link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'/>
+    <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- lined-icons -->
+    <link rel="stylesheet" href="{{ asset('Back/css/icon-font.min.css') }}" type='text/css' />
+    <link href="{{ asset('Front/css/style.css') }}" type="text/css" rel="stylesheet" media="all">
+    <link href="{{ asset('Front/css/font-awesome.css') }}" rel="stylesheet">
+    <!-- font-awesome icons -->
+    <!-- //Custom Theme files -->
+    <!-- js -->
+    <script src="{{ asset('Front/js/jquery-2.2.3.min.js') }}"></script>
+    <!-- //js -->
+    <!-- web-fonts -->
+    <link href="{{ asset('//fonts.googleapis.com/css?family=Limelight') }}" rel="stylesheet">
+    <link href="{{ asset('//fonts.googleapis.com/css?family=Junge') }}" rel="stylesheet">
+    <link href="{{ asset('//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic') }}"
+          rel='stylesheet' type='text/css'>
+
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/rating.css') }}" />
+
+
+    <div class="gallery">
+        <div class="container">
+            <h3 class="agileits-title">Liste Accessoire</h3>
+            <div class="gallery-agileinfo">
+
+                <div class="markets-grids">
+
+
+                    {% for accessoire in accessoires %}
+                        <div class="col-sm-4 col-xs-6 w3gallery-grids">
+                            <a href="Magasins" class="imghvr-hinge-right figure">
+                                <img width="400" height="200" src="{{ asset("images/") ~ accessoire.imageName }}"  class="attachment-bright-course-thumb size-bright-course-thumb wp-post-image" alt="Micro Biology"  />
+                                <div class="agile-figcaption">
+                                    <h4>{{ accessoire.nom }}</h4>
+                                    <p>prix :{{ accessoire.prix }}dt</p>
+                                </div>
+                            </a>
+                            <div align="center">
+                                {% if app.user %}
+                                <div class="stream-option">
+                                    <a class="agile-icon" href="{{ path('likerAccessoire', { 'id': accessoire.id,'idmagasin':id }) }}">
+                                        {% if accessoire.nblike ==0 %}
+                                            <i class="fa fa-heart-o"> Like</i>
+                                        {% else %}
+                                            <i class="fa fa-heart"> {{ accessoire.nblike }} Likes</i>
+                                        {% endif %}
+                                    </a>
+                                    {% else %}
+                                        <div class="stream-option">
+                                            <a class="agile-icon" href="{{ path('fos_user_security_login') }}">
+                                                {% if accessoire.nblike ==0 %}
+                                                    <i class="fa fa-heart-o"> Like</i>
+                                                {% else %}
+                                                    <i class="fa fa-heart"> {{ accessoire.nblike }} Likes</i>
+                                                {% endif %}
+                                            </a>
+
+                                        </div>
+
+                                    {% endif %}
+                                </div>
+
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                    <div class="clearfix"> </div>
+
+                </div>
+            </div>
+        </div>
+        <br><br>
+    <div align="center">
+        <h4 class="lis-font-weight-500"><i class="fa fa-commenting pr-2 lis-f-14"></i> Ajouter avis</h4>
+
+        {{ form_start(form) }}
+        {{ form_widget(form.commentaire,{'attr':{'id':'titre','placeholder':'Ajouter Commentaire'}    }    ) }}
+
+
+        {{ form_widget(form.rating       ) }}
+        {{ form_widget(form.Ajouter,{'attr':{'class':'btn btn-primary btn-default mt-3','id':'','placeholder':''}    }    ) }}
+
+
+        {{ form_end(form) }}
+    </div>
+        <div class="clearfix"> </div>
+
+    </div>
+    {% for a in avis %}
+        <div class="card lis-brd-light wow fadeInUp mb-2">
+            <div class="card-body p-4">
+                <div class="media d-block d-sm-flex text-center text-sm-left">
+                    <div class="media-body align-self-center">
+                        <p>
+                            {% if app.user==a.id_user %}
+                                <a href="{{ path("DeleteAvis",{'id':a.id, 'idmagasin':id}) }}"><i class="glyphicon glyphicon-trash"></i></a>
+                            {% endif %}
+                            {{ a.id_user }}
+
+                        </p>
+                        <p>{{ a.commentaire }}</p>
+                        <p>{{ a.rating|rating }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="{{ asset('js/rating.js') }}"></script>
+
+
+
+    <script type="text/javascript" src="{{ asset('Front/js/jquery.transit.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('Front/js/jquery.textFx.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.w3ls_agile').textFx({
+                type: 'fadeIn',
+                iChar: 100,
+                iAnim: 1000
+            });
+        });
+    </script>
+
+    <div class="clearfix"></div>
+
+{% endblock %}
+

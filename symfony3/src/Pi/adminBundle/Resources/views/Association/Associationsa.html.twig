@@ -1,0 +1,24 @@
+{% extends "layoutAdmin.html.twig" %}
+            {% block container %}
+    <div class="col-sm-6 hover-buttons">
+        <div class="wrap">
+            <div class="bg-effect">
+                <ul class="bt-list">
+
+                    <li><a href="{{ path('addAssociation') }}" class="hvr-icon-bounce col-22">Ajout Association</a></li>
+
+                </ul>
+
+            </div>
+        </div>
+        {% block container1 %}
+        {% endblock %}
+        {% block container2 %}
+        {% endblock %}
+        {% block container3 %}
+        {% endblock %}
+        {% block container4 %}
+        {% endblock %}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+
+
+    {% for animaux in animauxs %}
+
+<div class="welcome-w3lsrow2">
+
+    <div class="col-sm-3 team-grid">
+
+
+        <div class="flip-container">
+
+            <div class="flipper">
+
+                <div class="front">
+                    <img src="{{ asset('images/') }}{{ animaux.nomImage }}" alt="" style="width: 300px; height: 400px"/>
+
+                </div>
+
+                <div class="back">
+
+                        <h4>Nom : {{ animaux.nomA }}</h4>
+                    <p>Age : {{ animaux.age }}</p>
+                    <p>Poids : {{ animaux.poids }}</p>
+                    <p>Race :{{ animaux.race }}</p>
+
+                    <div class="w3l-social">
+                        <ul>
+                            <li><a href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+                             <li><a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%2FAPI%2Fweb%2Fapp_dev.php%2FlistAnimaux&original_referer=http%3A%2F%2Flocalhost%2FAPI%2Fweb%2Fapp_dev.php%2FlistAnimaux"><i class="fa fa-twitter"></i></a></li>
+                            <!--<li><a href="#"><i class="fa fa-rss"></i></a></li>   -->
+                           <!--  socialButtons( {'googleplus':false, 'facebook':false, 'linkedin':false} ) -->
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3 team-grid">
+        <div class="flip-container">
+            <div class="flipper">
+
+            </div>
+        </div>
+    </div>
+    </div>
+    {% endfor %}
+
+   <div class="navigation">
+        {{ knp_pagination_render(animauxs) }}
+    </div>
+
+{% endblock %}

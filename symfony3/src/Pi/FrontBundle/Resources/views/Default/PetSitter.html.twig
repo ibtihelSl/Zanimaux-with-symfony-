@@ -1,0 +1,81 @@
+{% extends 'PiFrontBundle::Layout.html.twig' %}
+{% block content %}
+    <div class="gallery">
+    <div class="container">
+        <h3 class="agileits-title"> PetSitter</h3>
+
+        <input type="text" name="search" id="sugg">
+        <div id="myList">
+            {% for petsitter in petsitters %}
+                <div class="gallery-agileinfo">
+                    <div class="col-sm-4 col-xs-6 w3gallery-grids">
+                        <a href="" class="imghvr-hinge-right figure">
+                            <img src="{{ asset('images/') ~ petsitter.urlimagesitter }}" alt="" title="sara akrout"/>
+                            <div class="agile-figcaption">
+                                <h4> {{ petsitter.NomP }}</h4>
+                                <p> {{ petsitter.AdressP }}  </p>
+                                <p> {{ petsitter.VilleP }}</p>
+                                <p>{{ petsitter.PhoneP }} </p>
+                                <p>{{ petsitter.MailP }}</p>
+
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="{{ asset('Front/js/jquery-2.2.3.min.js') }}"></script>
+    <script>
+        $(document).ready(function(){
+            $('#sugg').on('keyup', function(){
+                // alert();
+                var url = '{{ path('Post_Search') }}';
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: 'q=' + $('#sugg').val(),
+                    success: function (data) {
+                        if (data !== '') {
+                            $('#myList').html('');
+                            console.log(data);
+                            $.each((data), function (key, element) {
+
+
+
+
+
+                                $('#myList').append( ' <div class="gallery-agileinfo">\n' +
+                                    '                <div class="col-sm-4 col-xs-6 w3gallery-grids">\n' +
+                                    '                    <a href="" class="imghvr-hinge-right figure">\n' +
+                                    '                        <img src="http://PiAdminBundle/web/images/'+element.urlimagesitter+' alt="" title="sara akrout"/>\n' +
+                                    '                        <div class="agile-figcaption">\n' +
+                                    '                            <h4> '+ element.NomP +'</h4>\n' +
+                                    '                            <p> '+ element.AdressP +'  </p>\n' +
+                                    '                            <p> '+ element.VilleP  +'</p>\n' +
+                                    '                            <p>'+ element.PhoneP  +' </p>\n' +
+                                    '                            <p>'+ element.MailP  +'</p>\n' +
+                                    '\n' +
+                                    '                        </div>\n' +
+                                    '                    </a>\n' +
+                                    '                </div>\n' +
+                                    '\n' +
+                                    '            </div> ');
+                            });
+                        }
+                        else {
+
+                        }
+                    },
+                    error: function () {
+
+                    }
+                });
+
+            });
+        });
+    </script>
+
+
+{% endblock %}

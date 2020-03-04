@@ -1,0 +1,49 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+
+
+
+    <h3 class="agileinfo_sign">liste des Veterinaires</h3>
+
+    <div class="welcome agileits">
+        <div class="container">
+
+
+
+
+            {% for veterinaire in veterinaires %}
+                <div class="col-sm-3 team-grid">
+                    <div class="flip-container">
+                        <div class="flipper">
+                            <div class="front">
+
+                                <img src="{{ asset('images/')}}{{ veterinaire.nomImage }}">
+                            </div>
+                            <div class="back">
+                                <h4>nom : </h4> <p>{{ veterinaire.nom }}</p>
+                                <h4>adress :</h4><p> {{ veterinaire.address }}</p>
+                                <h4>ville :</h4> <p>{{ veterinaire.ville }}</p>
+                                <h4>phone : </h4><p>{{ veterinaire.phone }}</p>
+                                <h4>email : {{ veterinaire.email }}</h4>
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+                    <h4><a class="agile-icon" href="{{ path("Article",{'id':veterinaire.id})}}">Voire les article de {{ veterinaire.nom }} </a></h4>
+
+
+
+
+                </div>
+            {% endfor %}
+
+
+
+            <div class="clearfix"> </div>
+
+        </div>
+    </div>
+{% endblock %}

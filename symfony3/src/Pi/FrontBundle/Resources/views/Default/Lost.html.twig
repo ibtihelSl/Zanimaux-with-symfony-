@@ -1,0 +1,33 @@
+{% extends 'PiFrontBundle::Layout.html.twig' %}
+{% block content %}
+    <div class="gallery">
+        <div class="container">
+            <h3 class="agileits-title"> Lost Pets</h3>
+
+
+
+
+            {% for lost in lost %}
+                <div class="gallery-agileinfo">
+                    <div class="col-sm-4 col-xs-6 w3gallery-grids">
+                        <a href="" class="imghvr-hinge-right figure">
+                            <img src="{{ asset('images/') }}{{ lost.urlimagelost }}" alt="" title="sara akrout"/>
+                            <div class="agile-figcaption">
+                                <h4> {{ lost.NomL }}</h4>
+                                <p> {{ lost.TypeL }}  </p>
+                                <p> {{ lost.NumL }}</p>
+                                <p>{{ lost.OwnerL }} </p>
+                                <p>{{ lost.MailL }}</p>
+
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+{% endblock %}

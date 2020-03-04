@@ -1,0 +1,385 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Pets Care an Animals </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="Pets Care Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+	SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design"/>
+    <script type="application/x-javascript">
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- Custom Theme files -->
+    <link href="{{ asset('Front/css/bootstrap.css') }}" type="text/css" rel="stylesheet" media="all">
+    <link href="{{ asset('Front/css/easy-responsive-tabs.css') }}" rel='stylesheet' type='text/css'/>
+    <!-- easy-responsive-tabs -->
+
+    <link href="{{ asset('Front/css/style.css') }}" type="text/css" rel="stylesheet" media="all">
+    <link href="{{ asset('Front/css/font-awesome.css') }}" rel="stylesheet">
+    <!-- font-awesome icons -->
+    <!-- //Custom Theme files -->
+    <!-- js -->
+    <script src="{{ asset('Front/js/jquery-2.2.3.min.js') }}"></script>
+    <!-- //js -->
+    <!-- web-fonts -->
+    <link href="{{ asset('//fonts.googleapis.com/css?family=Limelight') }}" rel="stylesheet">
+    <link href="{{ asset('//fonts.googleapis.com/css?family=Junge') }}" rel="stylesheet">
+    <link href="{{ asset('//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic') }}"
+          rel='stylesheet' type='text/css'>
+    <!-- //web-fonts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+    {% block head %}
+    {% endblock %}
+</head>
+
+<body>
+<!-- banner -->
+<div class="agileits-banner">
+    <div class="bnr-agileinfo">
+        <div class="banner-top w3layouts">
+            <div class="container">
+                <ul class="agile_top_section">
+                    <li>
+                        <p> Pets Care Website !</p>
+                    </li>
+                    <li>
+                        <p><span class="glyphicon glyphicon-earphone"></span> +216 99 888 777 </p>
+                    </li>
+                    {% if app.user %}
+
+                        <li><a class="sign" href="{{ path('fos_user_security_logout') }}" data-toggle="modal"
+                               data-target="#myModal2"><i class="fa fa-sign-in" aria-hidden="true"></i>Logout</a></li>
+                    {% else %}
+                        <li><a class="sign" href="{{ path('fos_user_security_login') }}" data-toggle="modal"
+                               data-target="#myModal2"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In</a> <a
+                                    class="sign" href="{{ path('fos_user_registration_register') }}" data-toggle="modal"
+                                    data-target="#myModal2"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign Up</a>
+                        </li>
+
+                    {% endif %}
+
+                </ul>
+            </div>
+        </div>
+        <div class="banner-w3text w3layouts">
+            {% if app.user %}
+            <h3 class="w3ls_agile">Bonjour {{ app.user.username }}</h3>
+            {% endif %}
+            <h3 class="w3ls_agile">Bienvenue sur notre site web:</h3>
+
+            <h2>Zanimaux</h2>
+        </div>
+        <!-- navigation -->
+        <div class="top-nav w3-agiletop">
+            <div class="agile_inner_nav_w3ls">
+                <div class="navbar-header w3llogo">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <h1><a href="layout">Pets Care</a></h1>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <div class="w3menu navbar-left">
+                        <ul class="nav navbar">
+                            <li><a href="accueil" class="active">Home</a></li>
+                            <li><a href="{{ path('fos_user_profile_show') }}">Profile</a></li>
+                            <li><a href="{{ path('Magasins') }}">Magasins</a></li>
+                            <li><a href="{{ path('Veterinaires') }}">Vétérinaires</a></li>
+                            <li><a href="{{ path('Adoption') }}">Adoption</a></li>
+                            <li><a href="{{ path('Assurances') }}" >Assurances</a></li>
+                            <li><a href="{{ path('Evenements') }}">Evenements</a></li>
+                            <li><a href="{{ path('Associations') }}">Associations pour animaux </a></li>
+                            <li><a href="{{ path('ContactUs') }}">Contact</a></li>
+
+                        </ul>
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <!-- //navigation -->
+    </div>
+</div>
+
+
+
+{% if app.request.hasPreviousSession %}
+    {% for type, messages in app.session.flashbag.all() %}
+        {% for message in messages %}
+            <div class="flash-{{ type }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+{% endif %}
+
+<div>
+    {% block fos_user_content %}
+    {% endblock fos_user_content %}
+</div>
+{% block body %}
+{% endblock %}
+
+<!-- //banner -->
+<!-- Modal1 -->
+
+<!-- //Modal1 -->
+<!-- Modal2 -->
+
+<!-- //Modal2 -->
+{% block content %}
+    <!-- welcome -->
+    <div class="welcome agileits">
+        <div class="container">
+
+            <div class="welcome-w3lsrow">
+                <div class="col-md-5 col-sm-5 w3welcome-left">
+                    <div class="w3welcome-text">
+                        <h5 class="w3l-subtitle">Zanimaux</h5>
+                        <p>Les animaux font partie de notre quotidien et de notre environnement, où que l'on habite,
+                            en ville comme à la campagne. Qu’il s’agisse d’animaux de compagnie ou sauvages,
+                            vivre avec ou les observer est source de bien-être pour la plupart d'entre nous.
+                            Sur Le site des Animaux, nous faisons la part belle aux conseils,
+                            informations et descriptions de tous les animaux, du plus microscopique au plus imposant,
+                            qu’ils vivent sur terre, dans les airs ou dans l’eau.</p>
+                    </div>
+                </div>
+                <div class="col-md-7 col-sm-7 w3welcome-img">
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+    </div>
+    <!-- //welcome -->
+    <!-- /services -->
+    <div class="agile_secives " id="services">
+        <div class="container">
+            <h3 class="agileits-title two">Ce que nous faisons</h3>
+            <div class="markets-grids">
+                <div class="col-md-4 w3ls-markets-grid">
+                    <div class="agileits-icon-grid">
+                        <div class="icon-left">
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                        </div>
+                        <div class="icon-right">
+                            <h5>Evenements</h5>
+                            <p>Liste des Evenements les plus important..</p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="col-md-4 w3ls-markets-grid">
+                    <div class="agileits-icon-grid">
+                        <div class="icon-left">
+                            <i class="fa fa-ambulance" aria-hidden="true"></i>
+                        </div>
+                        <div class="icon-right">
+                            <h5>Animalerie</h5>
+                            <p>les plus proche animalerie par rapport votre position..</p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="col-md-4 w3ls-markets-grid">
+                    <div class="agileits-icon-grid">
+                        <div class="icon-left">
+                            <i class="fa fa-medkit" aria-hidden="true"></i>
+                        </div>
+                        <div class="icon-right">
+                            <h5>veterinaire</h5>
+                            <p>les meilleur vétérinaire en tunis avec ces articles ..</p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="col-md-4 w3ls-markets-grid">
+                    <div class="agileits-icon-grid">
+                        <div class="icon-left">
+                            <i class="fa fa-flask" aria-hidden="true"></i>
+                        </div>
+                        <div class="icon-right">
+                            <h5>adoption</h5>
+                            <p>adopter un animal ..</p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="col-md-4 w3ls-markets-grid">
+                    <div class="agileits-icon-grid">
+                        <div class="icon-left">
+                            <i class="fa fa-line-chart" aria-hidden="true"></i>
+                        </div>
+                        <div class="icon-right">
+                            <h5>association</h5>
+                            <p>les association en tunis ...... <p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="col-md-4 w3ls-markets-grid">
+                    <div class="agileits-icon-grid">
+                        <div class="icon-left">
+                            <i class="fa fa-clock-o" aria-hidden="true"></i>
+                        </div>
+                        <div class="icon-right">
+                            <h5>Assurance</h5>
+                            <p>les assurance en tunis et le prix pour chaque animal..</p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <!-- //services -->
+
+    <!-- about -->
+
+    <!-- //services -->
+{% endblock content %}
+<!-- w3-agilesale -->
+<div class="w3-agilesale welcome">
+    <div class="container">
+        <h3 class="agileits-title two">Pet Adoption. Be Part of Something <span>Beautiful!</span></h3>
+        <a href="ContactUs" class="button button-isi"><span>Contact Us </span><i
+                    class="icon glyphicon glyphicon-arrow-right"></i></a>
+    </div>
+</div>
+
+
+<div class="copy-w3right">
+    <div class="container">
+        <div class="top-nav bottom-w3lnav">
+            <ul>
+                <li><a href="accueil" class="active">Home</a></li>
+                <li><a href="{{ path('fos_user_profile_show') }}">Profile</a></li>
+                <li><a href="{{ path('Magasins') }}">Magasins</a></li>
+                <li><a href="{{ path('Veterinaires') }}">Vétérinaires</a></li>
+                <li><a href="{{ path('Adoption') }}">Adoption</a></li>
+
+                <li><a href="{{ path('Evenements') }}">Evenements</a></li>
+                <li><a href="{{ path('Associations') }}">Associations pour animaux </a></li>
+
+
+
+                <li><a href="{{ path('ContactUs') }}">Contact</a></li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript" src="{{ asset('Front/js/jquery.transit.js') }}"></script>
+<script type="text/javascript" src="{{ asset('Front/js/jquery.textFx.js') }}"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.w3ls_agile').textFx({
+            type: 'fadeIn',
+            iChar: 100,
+            iAnim: 1000
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.w3_text').textFx({
+            type: 'fadeIn',
+            iChar: 100,
+            iAnim: 1000
+        });
+    });
+</script>
+
+
+<!-- //password-script -->
+
+<!-- script for responsive tabs -->
+<script src="{{ asset('Front/js/easy-responsive-tabs.js') }}"></script>
+<script>
+    $(document).ready(function () {
+        $('#horizontalTab').easyResponsiveTabs({
+            type: 'default', //Types: default, vertical, accordion
+            width: 'auto', //auto or any width like 600px
+            fit: true, // 100% fit in a container
+            closed: 'accordion', // Start closed if in accordion view
+            activate: function (event) { // Callback function if tab is switched
+                var $tab = $(this);
+                var $info = $('#tabInfo');
+                var $name = $('span', $info);
+                $name.text($tab.text());
+                $info.show();
+            }
+        });
+        $('#verticalTab').easyResponsiveTabs({
+            type: 'vertical',
+            width: 'auto',
+            fit: true
+        });
+    });
+</script>
+<!-- script for responsive tabs -->
+<script src="{{ asset('Front/js/SmoothScroll.min.js') }}"></script>
+<!-- start-smooth-scrolling -->
+<!--
+<script type="text/javascript" src="{{ asset('js/move-top.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/easing.js') }}"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        $(".scroll").click(function (event) {
+            event.preventDefault();
+
+            $('html,body').animate({
+                scrollTop: $(this.hash).offset().top
+            }, 1000);
+        });
+    });
+</script>
+<!-- //end-smooth-scrolling -->
+<!-- smooth-scrolling-of-move-up -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        /*
+        var defaults = {
+            containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+        };
+        */
+
+        $().UItoTop({
+            easingType: 'easeOutQuart'
+        });
+
+    });
+</script>
+<!-- //smooth-scrolling-of-move-up -->
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<div class="signin-form profile">
+    <h3 class="agileinfo_sign">Sign Up</h3>
+    <div class="login-form">
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+    {{ form_widget(form) }}
+    <div>
+        <input type="submit" value="{{ 'registration.submit'|trans }}" />
+    </div>
+{{ form_end(form) }}
+    </div>
+</div>

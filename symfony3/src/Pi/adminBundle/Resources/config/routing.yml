@@ -1,0 +1,187 @@
+pi_admin_homepage:
+    path:     /
+    defaults: { _controller: PiAdminBundle:Default:indexa }
+layouta:
+    path:     /admin
+    defaults: { _controller: PiAdminBundle:Default:layoutAdmin }
+gallerya:
+    path:     /gallerya
+    defaults: { _controller: PiAdminBundle:Default:gallerya }
+inboxa:
+    path:     /inboxa
+    defaults: { _controller: PiAdminBundle:Default:inboxa }
+calendara:
+    path:     /calendara
+    defaults: { _controller: PiAdminBundle:Default:calendara }
+signina:
+    path:     /signina
+    defaults: { _controller: PiAdminBundle:Default:signina }
+addmagasin:
+    path:     /addmagasin
+    defaults: { _controller: PiAdminBundle:Magasin:addmagasin }
+listmagasin:
+    path:     /listmagasin
+    defaults: { _controller: PiAdminBundle:Magasin:listmagasin }
+recherchemagasin:
+    path:     /recherchemagasin
+    defaults: { _controller: PiAdminBundle:Magasin:recherchemagasin }
+updatemagasin:
+    path:     /updatemagasin
+    defaults: { _controller: PiAdminBundle:Magasin:updatemagasin }
+deletemagasin:
+    path:     /deletemagasin
+    defaults: { _controller: PiAdminBundle:Magasin:deletemagasin }
+addaccessoire:
+    path:     /addaccessoire
+    defaults: { _controller: PiAdminBundle:Accessoires:addaccessoire }
+updateaccessoire:
+    path:     /updateaccessoire
+    defaults: { _controller: PiAdminBundle:Accessoires:updateaccessoire }
+listeaccessoire:
+    path:     /listeaccessoire
+    defaults: { _controller: PiAdminBundle:Accessoires:listeaccessoire }
+supprimeraccessoire:
+    path:     /supprimeraccessoire
+    defaults: { _controller: PiAdminBundle:Accessoires:supprimeraccessoire }
+rechercheraccessoires:
+    path:     /rechercheraccessoires
+    defaults: { _controller: PiAdminBundle:Accessoires:rechercheraccessoires }
+addEvent:
+    path: /addEvent
+    defaults:  {_controller: PiAdminBundle:Event:add}
+listEvent:
+    path: /listEvent
+    defaults:  {_controller: PiAdminBundle:Event:list}
+deleteEvent:
+    path: /deleteEvent
+    defaults:  {_controller: PiAdminBundle:Event:delete}
+updateEvent:
+    path: /updateEvent/{id}
+    defaults:  {_controller: PiAdminBundle:Event:update}
+rechercheEvent:
+    path: /recherche
+    defaults:  {_controller: PiAdminBundle:Event:Recherche}
+addAssociation:
+    path: /addAssociation
+    defaults:  {_controller: PiAdminBundle:Association:add}
+listAssociation:
+    path: /listAssociation
+    defaults:  {_controller: PiAdminBundle:Association:list}
+deleteAssociation:
+    path: /deleteAssociation
+    defaults:  {_controller: PiAdminBundle:Association:delete}
+updateAssociation:
+    path: /updateAssociation/{id}
+    defaults:  {_controller: PiAdminBundle:Association:update}
+rechercheAssociation:
+    path: /rechercheAssociation
+    defaults:  {_controller: PiAdminBundle:Association:Recherche}
+Admin_stat:
+    path: /stat
+    defaults:  {_controller: PiAdminBundle:Event:showstat}
+annimauxa:
+     path:     /annimauxa
+     defaults: { _controller: PiFrontBundle:Animaux:annimauxa }
+
+listannimauxa:
+     path:     /listannimauxa
+     defaults: { _controller: PiFrontBundle:Animaux:afficheAnimaux }
+
+deleteannimauxa:
+     path:     /deleteannimauxa/{id}
+     defaults: { _controller: PiFrontBundle:Animaux:deleteAnimaux }
+
+updateannimauxa:
+     path:     /updateannimauxa/{id}
+     defaults: { _controller: PiFrontBundle:Animaux:updateAnimaux }
+
+adoptation:
+     path:     /adoptation
+     defaults: { _controller: PiFrontBundle:Adoptation:adoptation }
+
+liveSearch:
+     path:     /search
+     defaults: { _controller: PiFrontBundle:Adoptation:liveSearch }
+
+listadoptation:
+     path:     /listadoptation
+     defaults: { _controller: PiFrontBundle:Adoptation:afficheAdoptation }
+
+deleteadoptation:
+     path:     /deleteadoptation/{id}
+     defaults: { _controller: PiFrontBundle:Adoptation:deleteAdoptation }
+
+updateadoptation:
+     path:     /updateadoptation/{id}
+     defaults: { _controller: PiFrontBundle:Adoptation:updateAdoptation }
+
+listfAnimaux:
+     path:     /listAnimauxf
+     defaults: { _controller: PiFrontBundle:Animaux:afficheAnimauxf }
+
+addVeterinaire:
+    path:     /addVeterinaire
+    defaults: { _controller: PiAdminBundle:Veterinaires:addVeterinaire }
+listVeterinaire:
+    path:     /listVeterinaire
+    defaults: { _controller: PiAdminBundle:Veterinaires:listVeterinaire }
+deleteVeterinaire:
+    path:     /deleteVeterinaire
+    defaults: { _controller: PiAdminBundle:Veterinaires:deleteVeterinaire }
+rechercheVeterinaire:
+    path:     /rechercheVeterinaire
+    defaults: { _controller: PiAdminBundle:Veterinaires:rechercheVeterinaire }
+UpdateVeterinaire:
+    path:     /UpdateVeterinaire
+    defaults: { _controller: PiAdminBundle:Veterinaires:UpdateVeterinaire }
+addAssurance:
+    path:     /addAssurance
+    defaults: { _controller: PiAdminBundle:assurance:addAssurance }
+listAssurance:
+    path:     /listAssurance
+    defaults: { _controller: PiAdminBundle:assurance:listAssurance }
+deleteAssurance:
+    path:     /deleteAssurance
+    defaults: { _controller: PiAdminBundle:assurance:deleteAssurance }
+rechercheAssurance:
+    path:     /rechercheAssurance
+    defaults: { _controller: PiAdminBundle:assurance:rechercheAssurance }
+updateAssurance:
+    path:     /updateAssurance
+    defaults: { _controller: PiAdminBundle:assurance:updateAssurance }
+addArticle:
+    path:     /addArticle
+    defaults: { _controller: PiAdminBundle:Article:addArticle }
+listArticle:
+    path:     /listArticle
+    defaults: { _controller: PiAdminBundle:Article:listArticle }
+deleteArticle:
+    path:     /deleteArticle
+    defaults: { _controller: PiAdminBundle:Article:deleteArticle }
+rechercheArticle:
+    path:     /rechercheArticle
+    defaults: { _controller: PiAdminBundle:Article:rechercheArticle }
+updateArticle:
+    path:     /updateArticle
+    defaults: { _controller: PiAdminBundle:Article:updateArticle }
+all:
+    path:     /Events/all
+    defaults: { _controller: PiAdminBundle:Events:all }
+find_event:
+    path:     /Events/find/{id}
+    defaults: { _controller: PiAdminBundle:Events:find}
+allAssocia:
+    path:     /Associations/all
+    defaults: { _controller: PiAdminBundle:AssociationS:all }
+find_associa:
+    path:     /Associations/find/{id}
+    defaults: { _controller: PiAdminBundle:AssociationS:find}
+findUser:
+    path:     /user/find
+    defaults: { _controller: PiAdminBundle:Events:findus}
+createUser:
+    path:     /user/create/{username}/{password}/{email}
+    defaults: { _controller: PiAdminBundle:Events:newC}
+findUserBy:
+    path:     /user/findBy/{username}/{password}
+    defaults: { _controller: PiAdminBundle:Events:findU}

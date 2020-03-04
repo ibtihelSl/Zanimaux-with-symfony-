@@ -1,0 +1,31 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+
+
+
+    <div class="about agileinfo">
+        <div class="container">
+            <h3 class="agileits-title">About Us</h3>
+            <div class="markets-grids">
+    {% for article in articles %}
+                <div class="col-md-6 about-w3left">
+                    <h4>{{ article.titre }}</h4>
+                    <h6><span><i class="fa fa-calendar" aria-hidden="true">{{ article.date |date('d-m-y') }}</i></span></h6>
+                    <p>{{ article.description }}</p>
+
+                    <a href="{{ path("ArticleDetails",{'id':article.id})}}" class="button button-isi"><span>Read More</span><i class="icon glyphicon glyphicon-arrow-right"></i></a>
+                </div>
+                <div class="col-md-6 about-w3right">
+                    <img src="images/g4.jpg" alt="" />
+                </div>
+
+    {% endfor %}
+                <div class="clearfix"> </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

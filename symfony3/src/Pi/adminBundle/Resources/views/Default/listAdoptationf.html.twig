@@ -1,0 +1,46 @@
+{% extends "PiAdminBundle:Default:layout.html.twig" %}
+{% block container %}
+
+
+
+    {% for adoptation in adoptations %}
+
+        <div class="welcome-w3lsrow2">
+
+            <div class="col-sm-3 team-grid">
+
+
+                <div class="flip-container">
+
+                    <div class="flipper">
+
+
+                        <div class="back">
+
+                            <h4>{{ adoptation.nomprop }}</h4>
+
+                            <div class="w3l-social">
+                                <ul>
+                                    <li><a href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%2FAPI%2Fweb%2Fapp_dev.php%2FlistAnimaux&original_referer=http%3A%2F%2Flocalhost%2FAPI%2Fweb%2Fapp_dev.php%2FlistAnimaux"><i class="fa fa-twitter"></i></a></li>
+                                    <!--<li><a href="#"><i class="fa fa-rss"></i></a></li>   -->
+                                    <!--  socialButtons( {'googleplus':false, 'facebook':false, 'linkedin':false} ) -->
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 team-grid">
+                <div class="flip-container">
+                    <div class="flipper">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+
+{% endblock %}

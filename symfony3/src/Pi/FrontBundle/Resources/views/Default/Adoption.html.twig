@@ -1,0 +1,81 @@
+{% extends 'PiFrontBundle::Layout.html.twig' %}
+{% block content %}
+
+
+
+<div class="subscribe wthree-sub">
+    <div class="container">
+   <input type="text" id="sugg" placeholder="Recherche ...">
+    </div>
+</div>
+
+    <div class="gallery">
+        <div class="container">
+            <h3 class="agileits-title">Adopter</h3>
+            <div class="gallery-agileinfo">
+                <div id="myList">
+
+                    {% for adoptation in adoptations %}
+
+
+                        <a href="{{ asset('images/img1.jpg') }}" class="imghvr-hinge-right figure">
+                            <img src="{{ asset('images/img1.jpg') }}" alt="" title="Rex"/>
+                            <div class="agile-figcaption">
+                                <h4>{{ adoptation.nomprop }}</h4>
+                                <p>espece : {{ adoptation.espece }}</p>
+                               {# <p> {{ adoptation.animaux.nomA }}</p>#}
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="{{ asset('Back/js/jquery-2.1.4.min.js') }}"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            $('#sugg').on('keyup', function () {
+
+                var url = '{{ path('liveSearch') }}';
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: 'q=' + $('#sugg').val(),
+                    success: function (data) {
+                        console.log(data);
+                        if (data !== '') {
+                            $('#myList').html('');
+                            console.log(data);
+                            $.each((data), function (key, element) {
+                                // image = image.replace('__img1.jpg', element.image)
+                                var image="{{ asset('images/img1.jpg') }}"
+                                $('#myList').append( '\n' +
+                                    '                    <a href='+image+' class="imghvr-hinge-right figure">\n' +
+                                    '                        <img src='+image+' alt="" title="Rex"/>\n' +
+                                    '                        <div class="agile-figcaption">\n' +
+                                    '                            <h4>'+element.nomprop +'</h4>\n' +
+                                    '                            <p>espece :'+ element.espece +'</p>\n' +
+                                    '                            <p> </p>\n' +
+                                    '                        </div>\n' +
+                                    '                    </a>');
+                            });
+                        }
+                        else {
+
+                        }
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+
+            });
+        });
+    </script>
+
+{% endblock %}

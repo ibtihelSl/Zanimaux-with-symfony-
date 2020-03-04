@@ -1,0 +1,49 @@
+{% extends 'PiFrontBundle:Default:Evenements.html.twig' %}
+
+{% block content1 %}
+    <div class="agile_secives " id="services">
+    <div class="container">
+        <div class="markets-grids">
+
+        <div class="col-md-4 w3ls-markets-grid">
+        <div class="agileits-icon-grid">
+            <div class="icon-left">
+                <i class="fa fa-eye" aria-hidden="true"></i>
+            </div>
+            <div class="icon-right">
+                <h5> {{ Event.titre }} </h5>
+                <table>
+                    <tr><td><h5>Adresse :</h5></td> <td><p>{{ Event.adresse }}</p></td></tr> </br>
+                    <tr><td><h5>Date début:</h5></td><td><p> {{ Event.dateDebut|date('Y/m/d') }}</p></td> </tr> </br>
+                    <tr><td><h5>Date fin:</h5></td><td><p> {{ Event.dateFin|date('Y/m/d') }}</p></td> </tr> </br>
+                    <tr><td> <h5> Type :</h5></td><td> <p>{{ Event.type }}</p></td> </tr> </br>
+                    <tr><td> <h5> Nombre de place :</h5></td><td> <p>{{ Event.nombrePlace }}</p></td> </tr> </br>
+
+                </table>
+            </div>
+
+            <div class="clearfix"> </div>
+        </div>
+
+     </div>
+        </div>
+
+    </div>
+            <div class="icon-right">
+
+                <tr><td> <h5> Détails :</h5></td><td> <p>{{ Event.details }}</p></td> </tr>
+            </div>
+    {% if app.user %}
+            <a href="{{ path('participerEvent',{'id':Event.id}) }}" class="button button-isi"><span>Participer </span><i
+                        class="icon glyphicon glyphicon-arrow-right"></i></a>
+
+    {% else %}
+          sign in !!
+        {% endif %}
+
+
+
+
+    </div>
+
+{% endblock %}

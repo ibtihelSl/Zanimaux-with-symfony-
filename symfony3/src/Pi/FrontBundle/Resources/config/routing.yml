@@ -1,0 +1,109 @@
+pi_front_homepage:
+    path:     /
+    defaults: { _controller: PiFrontBundle:Default:index }
+layout:
+    path:     /accueil
+    defaults: { _controller: PiFrontBundle:Default:layout }
+About:
+    path: /About
+    defaults: { _controller: PiFrontBundle:Default:About }
+Adoption:
+    path: /Adoption
+    defaults: { _controller: PiFrontBundle:Default:Adoption }
+Magasins:
+    path: /Magasins
+    defaults: { _controller: PiFrontBundle:Default:Magasins }
+Veterinaires:
+    path: /Veterinaires
+    defaults: { _controller: PiFrontBundle:Default:Veterinaires }
+Assurances:
+    path: /Assurances
+    defaults: { _controller: PiFrontBundle:Default:Assurances }
+calcul:
+    path: /calcul
+    defaults: { _controller: PiFrontBundle:Default:calculer }
+Evenements:
+    path: /Evenements
+    defaults: { _controller: PiFrontBundle:Default:Evenements }
+Associations:
+   path: /Associations
+   defaults: { _controller: PiFrontBundle:Default:Associations }
+Sante:
+   path: /Sante
+   defaults: { _controller: PiFrontBundle:Default:Sante }
+SupportAdoption:
+   path: /SupportAdoption
+   defaults: { _controller: PiFrontBundle:Default:SupportAdoption}
+PlusEvent:
+   path: /PlusEvent
+   defaults: { _controller: PiFrontBundle:Default:PlusEvent}
+ContactUs:
+   path: /ContactUs
+   defaults: { _controller: PiFrontBundle:ContactUs:ContactUs}
+map:
+    path: /map
+    defaults: { _controller: PiFrontBundle:Default:map }
+Accessoires:
+    path: /Accessoires
+    defaults: { _controller: PiFrontBundle:Default:Accessoires }
+likerAccessoire:
+    path: /likerAccessoire/{idmagasin}
+    defaults: { _controller: PiFrontBundle:Default:likerAccessoire }
+DeleteAvis:
+    path: /DeleteAvis/{idmagasin}
+    defaults: { _controller: PiFrontBundle:Avis:DeleteAvis }
+readMoreEvent:
+    path: /readMoreEvent/{id}
+    defaults: { _controller: PiFrontBundle:Default:readMoreEvent}
+participerEvent:
+    path: /participerEvent/{id}
+    defaults: { _controller: PiFrontBundle:Default:participerEvent}
+notification:
+    path: /notification
+    defaults: { _controller: PiFrontBundle:Participants:notification}
+listadoptationf:
+     path:     /listadoptationf
+     defaults: { _controller: PiFrontBundle:Adoptation:afficheAdoptationf }
+Post_Search:
+   path:     /searched
+   defaults: { _controller:  PiFrontBundle:Default:liveSearch}
+Article:
+   path: /Article
+   defaults: { _controller: PiFrontBundle:Default:Article }
+ArticleDetails:
+    path: /ArticleDetails
+    defaults: { _controller: PiFrontBundle:Default:ArticleDetails }
+deleteComment:
+    path: /deleteComment/{idarticle}
+    defaults: { _controller: PiFrontBundle:Default:deleteComment }
+createParticipation:
+    path: /partic/{idu}/{ide}
+    defaults: { _controller: PiFrontBundle:participerMobile:participerEvent}
+allParticipatiant:
+    path: /allParticipant
+    defaults: { _controller: PiFrontBundle:participerMobile:allParticipant}
+findParticipation:
+    path: /findpartic/{idu}/{ide}
+    defaults: { _controller: PiFrontBundle:participerMobile:findpartic}
+addadopterMobile:
+    path: /addadopterMobile/{idu}/{ide}
+    defaults: { _controller: PiFrontBundle:Adoptation:addadopterMobile}
+allAdoptionMobile:
+    path: /allAdoptionMobile
+    defaults: { _controller: PiFrontBundle:Adoptation:allAdoptionMobile}
+findadop:
+    path: /findadop/{idu}/{ide}
+    defaults: { _controller: PiFrontBundle:Adoptation:findadop}
+allAnimaux:
+    path: /allAnimaux
+    defaults: { _controller: PiFrontBundle:Animaux:allAnimaux }
+create_animal:
+    path: /animal/new
+    defaults: { _controller: PiFrontBundle:Animaux:new }
+updateAnimalMobile:
+    path: /animalupdate
+    defaults: { _controller: PiFrontBundle:Animaux:updateanimalMobile }
+deleteAnimalnMobile:
+    path: /deleteAni
+    defaults: { _controller: PiFrontBundle:Animaux:deleteAnimalnMobile }
+
